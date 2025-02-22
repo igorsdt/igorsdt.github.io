@@ -1,0 +1,24 @@
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: .75rem 0;
+}
+
+.col {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  border-right: 1px #dddddd solid;
+  text-align: center;
+
+  &:last-of-type {
+    border: none;
+  }
+}
+
+.title {
+  font-weight: 600;
+  text-align: left;
+}

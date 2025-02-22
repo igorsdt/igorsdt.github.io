@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3.75rem;
+  border-bottom: 1px solid #242323;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: sticky;
+  top: 0;
+
+  .logo {}
+
+  .nav {
+    display: flex;
+    gap: 2.5vw;
+  }
+
+  .navItem {
+    text-decoration: none;
+    color: #242323;
+    transition: color .3s linear;
+
+    @media (hover: hover) {
+      &:hover {
+        color: #C2C8DA;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        color: #C2C8DA;
+      }
+    }
+  }
+}
