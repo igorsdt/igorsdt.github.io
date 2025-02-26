@@ -1,0 +1,86 @@
+.popover {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  &.open {
+    z-index: 10;
+
+    .wrapper {
+      z-index: 1;
+      opacity: 1;
+      translate: none;
+    }
+
+    .bg {
+      opacity: 1;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .2s linear;
+  }
+
+  .wrapper {
+    max-width: 60vw;
+    min-width: 40vw;
+    max-height: calc(100% - 8rem);
+    min-height: 5rem;
+    position: relative;
+    z-index: 1;
+    background: white;
+    margin: auto;
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: -1;
+    translate: 10rem 0;
+    transition: opacity .2s linear, translate .3s ease-in-out;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .close {
+    font-size: 24px;
+    line-height: 20px;
+    outline: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color .3s linear;
+
+    @media (hover: hover) {
+      &:hover {
+        color: green;
+      }
+    }
+  }
+
+  .body {
+    max-height: 55vh;
+    overflow-y: auto;
+    margin-top: 1rem;
+  }
+}
