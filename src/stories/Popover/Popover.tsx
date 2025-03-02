@@ -16,9 +16,13 @@ interface PopoverProps {
    * @default ''
    */
   title?: string;
+  /**
+   * Close popup event
+   */
+  onClose?: () => void;
 };
 
-export const Popover: React.FC<PopoverProps> = ({visible=false, children, title}) => {
+export const Popover: React.FC<PopoverProps> = ({visible=false, children, title, onClose}) => {
   const [isVisible, setVisible] = useState(false);
   const visibleStyle = isVisible ? styles.open : '';
 
@@ -28,12 +32,12 @@ export const Popover: React.FC<PopoverProps> = ({visible=false, children, title}
   
   return (
     <div className={`${styles.popover} ${visibleStyle}`}>
-      <div className={styles.bg}></div>
+      <div onClick={onClose} className={styles.bg}></div>
       <div className={styles.wrapper}>
         <div className={styles.top}>
           <h3 className={styles.title}>{title}</h3>
           <button 
-            onClick={() => setVisible(false)} 
+            onClick={onClose}
             className={styles.close}
             aria-label="Закрыть попап"
           >

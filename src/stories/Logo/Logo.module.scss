@@ -1,3 +1,8 @@
+// themes
+[data-theme="dark"] .logo .firstWord, [data-theme="dark"] .logo .secondWord {
+  color: #fff;
+}
+
 .logo {
   gap: 2px;
   align-items: center;
