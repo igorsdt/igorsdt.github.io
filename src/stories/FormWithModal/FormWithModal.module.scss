@@ -1,0 +1,49 @@
+.wrapper {
+  max-width: 450px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: none;
+  padding: 0;
+}
+
+.label {
+  color: #292323;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: -webkit-fill-available;
+  color: #555;
+  padding: 0.5rem 1rem;
+  transition: border-color ease-in-out .3s;
+
+  &::placeholder {
+    color: #373333;
+  }
+
+  &:focus {
+    border-color: #585858;
+  }
+}
+
+.err {
+  color: red;
+  font-size: 0.75rem;
+}
+
+fieldset, label, input, input::placeholder, textarea {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
