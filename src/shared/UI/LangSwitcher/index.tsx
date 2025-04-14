@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './styles.module.scss';
+import { useTranslation } from "react-i18next";
 
 interface Props {
-  initialValue?: string;
-  onChange?: (value:string) => void;
   labels?: {
     ru: string;
     en: string;
@@ -11,23 +10,17 @@ interface Props {
 }
 
 export const LangSwitcher: React.FC<Props> = ({
-  initialValue = 'ru',
-  onChange,
   labels = { ru: 'RU', en: 'EN' },
 }: Props) => {
-  const [lang, setLang] = useState<string>(initialValue);
-
-  const handleToggle = (newValue: string) => {
-    setLang(newValue);
-    onChange?.(newValue);
-  };
+  const { i18n } = useTranslation('header');
+  const lang = i18n.language;
 
   return (
     <div className={styles.container} role="group">
       <button
         type="button"
         className={`${styles.button} ${lang === 'ru' ? styles.active : ''}`}
-        onClick={() => handleToggle('ru')}
+        onClick={() => i18n.changeLanguage('ru')}
         aria-pressed={lang === 'ru'}
       >
         {labels.ru}
@@ -36,7 +29,7 @@ export const LangSwitcher: React.FC<Props> = ({
       <button
         type="button"
         className={`${styles.button} ${lang === 'en' ? styles.active : ''}`}
-        onClick={() => handleToggle('en')}
+        onClick={() => i18n.changeLanguage('en')}
         aria-pressed={lang === 'en'}
       >
         {labels.en}

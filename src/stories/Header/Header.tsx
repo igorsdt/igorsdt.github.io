@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "../../shared/UI/ThemeSwitcher";
 import { LangSwitcher } from "../../shared/UI/LangSwitcher";
 
 export const Header: React.FC = () => {
-  const { t, i18n } = useTranslation('header');
+  const { t } = useTranslation('header');
 
   return (
     <header className={styles.header}>
@@ -20,10 +20,8 @@ export const Header: React.FC = () => {
           <a href="#" className={styles.navItem}>{t('menu.about')}</a>
         </nav>
         <div className={styles.switchers}>
-          <ThemeSwitcher></ThemeSwitcher>
-          <LangSwitcher onChange={
-            (value:string) => i18n.changeLanguage(value)
-          }></LangSwitcher>
+          <ThemeSwitcher />
+          <LangSwitcher />
         </div>
       </div>
     </header>
